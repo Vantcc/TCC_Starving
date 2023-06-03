@@ -120,9 +120,9 @@ public class UserService {
     public User create(UserDTO userDTO){
         userDTO.setId(null);
         repository.findByCpf(userDTO.getCpf()).ifPresent(u -> { throw new
-                UserAlreadyExistsException("CPF already exists.");});
+                UserAlreadyExistsException("CPF já existe.");});
         if (findByEmail(userDTO.getEmail()) != null) {
-            throw new UserAlreadyExistsException("Email already exists.");
+            throw new UserAlreadyExistsException("Email já existe.");
         }
         userDTO.setPassword(encoder.encode(userDTO.getPassword()));
         return repository.save(mapper.map(userDTO, User.class));
@@ -141,10 +141,10 @@ public class UserService {
                 ObjectNotFoundException("User not found."));
 
         repository.findByCpf(userDTO.getCpf()).filter(u -> !u.getId().equals(user.getId()))
-                .ifPresent(u -> { throw new UserAlreadyExistsException("CPF already exists."); });
+                .ifPresent(u -> { throw new UserAlreadyExistsException("CPF já existe."); });
 
         if (findByEmail(userDTO.getEmail()) != null) {
-            throw new UserAlreadyExistsException("Email already exists.");
+            throw new UserAlreadyExistsException("Email já existe.");
         }
         userDTO.setPassword(encoder.encode(userDTO.getPassword()));
 

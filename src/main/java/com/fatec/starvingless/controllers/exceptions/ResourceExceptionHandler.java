@@ -35,28 +35,28 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(InvalidCpfException.class)
     public ResponseEntity<StandardError> invalidCpfException(InvalidCpfException ex, HttpServletRequest request){
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(),
-                "Invalid CPF format", ex.getMessage(), request.getRequestURI());
+                "Formato de CPF inválido", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(InvalidEmailException.class)
     public ResponseEntity<StandardError> invalidEmailException(InvalidEmailException ex, HttpServletRequest request){
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(),
-                "Invalid Email", ex.getMessage(), request.getRequestURI());
+                "E-mail inválido", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(InvalidPhoneException.class)
     public ResponseEntity<StandardError> invalidPhoneException(InvalidPhoneException ex, HttpServletRequest request){
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(),
-                "Invalid phone format", ex.getMessage(), request.getRequestURI());
+                "Telefone inválido", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(InvalidDateException.class)
     public ResponseEntity<StandardError> invalidDateException(InvalidDateException ex, HttpServletRequest request){
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(),
-                "Invalid date format", ex.getMessage(), request.getRequestURI());
+                "Formato de data inválido", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
@@ -70,7 +70,7 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<StandardError> userAlreadyExistsException(UserAlreadyExistsException ex, HttpServletRequest request){
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(),
-                "Already Exist", ex.getMessage(), request.getRequestURI());
+                "Já existe", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 

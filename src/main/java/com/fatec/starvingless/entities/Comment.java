@@ -30,8 +30,8 @@ public class Comment implements Serializable {
 
     @Column(columnDefinition = "TEXT")
     @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-!,]*$",
-            message = "Description cannot contain special characters")
-    @Size(max = 250, message = "Description must be between 10 and 250 chars")
+            message = "A descrição não pode conter caracteres especiais")
+    @Size(max = 250, message = "A descrição deve ter entre 10 e 250 caracteres")
     @NotBlank
     private String description;
 

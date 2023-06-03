@@ -33,12 +33,12 @@ public class PostDTO implements Serializable {
     private Long id;
     @NotBlank(message = "Required field")
     @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-!]*$",
-            message = "Title cannot contain special characters")
-    @Size(min = 10, max = 50, message = "Title must be between 10 and 50 chars")
+            message = "O título não pode conter caracteres especiais")
+    @Size(min = 10, max = 50, message = "O título deve ter entre 10 e 50 caracteres")
     private String title;
-    @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-!,]*$",
-            message = "Description cannot contain special characters")
-    @Size(max = 250, message = "Description must be between 10 and 250 chars")
+    @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-!,?]*$",
+            message = "A descrição não pode conter caracteres especiais")
+    @Size(max = 250, message = "A descrição deve ter entre 10 e 250 caracteres")
     private String description;
 
     private URL imageUrl;

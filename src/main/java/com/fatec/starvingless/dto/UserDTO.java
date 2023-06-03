@@ -34,13 +34,13 @@ public class UserDTO implements Serializable {
     @NotBlank(message = "Required field")
     @Size(min = 2, max = 80)
     @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-]*$",
-            message = "Name cannot contain special characters")
+            message = "O Nome não pode conter caracteres especiais")
     @JsonProperty("FirstName")
     private String firstName;
     @NotBlank(message = "Required field")
     @Size(min = 2, max = 80)
     @javax.validation.constraints.Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\s\\-]*$",
-            message = "Last Name cannot contain special characters")
+            message = "O Sobrenome não pode conter caracteres especiais")
     @JsonProperty("LastName")
     private String lastName;
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -111,7 +111,7 @@ public class UserDTO implements Serializable {
         if (emailIsValid(email)) {
             this.email = email;
         } else {
-            throw new InvalidEmailException("Verify your e-mail address");
+            throw new InvalidEmailException("Verifique seu endereço de e-mail");
         }
     }
 
